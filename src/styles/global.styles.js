@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 `;
 

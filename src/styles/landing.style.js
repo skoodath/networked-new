@@ -3,18 +3,16 @@ import { device } from './device';
 import { FaArrowDown } from 'react-icons/fa';
 
 export const Styledlanding = styled.section`
-  height: 100vh;
-  background: #ffd54d;
+  height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 2rem 0 0 0;
+  margin: 5rem 0 0 0;
   position: relative;
   overflow: hidden;
-  @media ${device.laptop} {
-    padding: 2rem 0 0 0;
+  @media ${device.laptop}{
+    height: 60vh;
   }
 `;
 
@@ -25,11 +23,17 @@ export const LandingOverlay = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  background: #fff;
+  background-color: #fff;
+  border-top: 5px solid #ffd54d;
+  border-bottom: 5px solid #ffd54d;
+  border-left: 1px solid #ffd54d;
+  border-right: 1px solid #ffd54d;
   border-radius: 50%;
   z-index: 5;
+  transform: rotate(45deg);
   img{
     width: 70%;
+    transform: rotate(-45deg);
   }
 `;
 
@@ -81,6 +85,9 @@ export const Scrolldown = styled.div`
     font-size: 1rem;
     display: inline-block;
     margin: 0 0 1rem 0;
+  }
+  @media ${device.laptop}{
+    display: none;
   }
 `;
 

@@ -12,6 +12,7 @@ import {
 import GlobalStyle from "./styles/global.styles";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 ReactGA.initialize("UA-175890664-1");
 ReactGA.pageview("/");
@@ -37,14 +38,26 @@ const App = () => {
         <meta property="og:url" content="https://www.networked.in/" />
         <meta property="twitter:site" content="https://www.networked.in/" />
       </Helmet>
-      <Header />
-      <Landing />
-      <Intro />
-      <About />
-      <Fellowship />
-      <Seasons />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header />}>
+            <Route 
+              index
+              element={
+                <>
+                  <Landing />
+                  <Intro />      
+                </>
+            } />
+            <Route path="about" element={<About />} />
+            <Route path="fellowship" element={<Fellowship />} />
+            <Route path="seasons" element={<Seasons />} />
+          </Route>
+          
+        </Routes>
       <Contact />
       <Footer />
+      </BrowserRouter>
       <GlobalStyle />
     </>
   );

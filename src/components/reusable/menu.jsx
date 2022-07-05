@@ -1,34 +1,31 @@
 import React from "react";
 import { Menu, MenuLinks } from "../../styles/menu.style";
-import { gsap } from "gsap";
-import { CSSPlugin } from "gsap/CSSPlugin";
+import { Link } from "react-scroll";
 
-gsap.registerPlugin(CSSPlugin);
+const menu = ["about", "fellowship", "seasons"]
 
 const MenuPage = ({ scroll }) => {
   return (
     <Menu>
-      <MenuLinks
-        to="about"
-        spy={true}
-        smooth={true}
-        offset={-50}
-        duration={300}
-        scroll={"scroll"}
-        tabIndex="0"
-      >
-        About
+      <MenuLinks to="/">
+          home
       </MenuLinks>
+      {menu.map(m => (
+        <MenuLinks
+          key={m}
+          to={`/${m}`}
+        >
+        {m}
+        </MenuLinks>
+      ))}
       <MenuLinks
-        to="fellowship"
-        spy={true}
-        smooth={true}
-        offset={-50}
-        duration={300}
-        scroll={"scroll"}
-        tabIndex="0"
+        as={Link}
+        to="contact"
+        smooth={true} 
+        offset={-100} 
+        duration={500}
       >
-        Fellowship
+        Contact
       </MenuLinks>
     </Menu>
   );

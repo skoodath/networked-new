@@ -1,98 +1,40 @@
-import React, { useEffect, useRef } from "react";
+import React from "react"; 
 import Particles from "react-tsparticles";
+import { loadFull } from 'tsparticles'
 import {
   Styledlanding,
   Styledheader,
   LandingOverlay,
 } from "../../styles/landing.style";
-import { CSSPlugin, gsap } from "gsap";
 import Scroll from "./scrolldown";
 import networked from "../../assets/images/NetworkEd.png";
 import hummingbirds from "../../assets/images/hummingbird.svg";
 
-gsap.registerPlugin(CSSPlugin);
-
 const Landing = () => {
-  const overlayRef = useRef(null);
-  const logoRef = useRef(null);
-  const headerRef1 = useRef(null);
-  const headerRef2 = useRef(null);
-  const scrollRef = useRef(null);
 
-  const animateLanding = () => {
-    const tl = gsap.timeline();
-
-    tl.from(overlayRef.current, {
-      opacity: 0,
-      backgroundColor: "#ffd54e",
-      duration: 1,
-      ease: "Expo.easeInOut",
-    });
-    tl.from(
-      logoRef.current,
-      {
-        autoAlpha: 0,
-        duration: 1,
-        scale: 0.8,
-        ease: "Expo.easeOut",
-      },
-      "-=0.5"
-    );
-
-    tl.from(
-      headerRef1.current,
-      {
-        opacity: 0,
-        y: 90,
-        duration: 1,
-        ease: "Expo.easeOut",
-      },
-      "-=0.5"
-    );
-    tl.from(
-      headerRef2.current,
-      {
-        autoAlpha: 0,
-        y: 90,
-        duration: 1,
-        ease: "Expo.easeOut",
-      },
-      "-=0.9"
-    );
-
-    tl.from(
-      scrollRef.current,
-      {
-        opacity: 0,
-        scale: 0.8,
-        duration: 1,
-        ease: "Expo.easeOut",
-      },
-      "-=0.5"
-    );
-  };
-
-  useEffect(() => {
-    animateLanding();
-  }, []);
+  const particlesInit = async (main) => {
+    await loadFull(main)
+  }
 
   return (
-    <Styledlanding name="landing">
-      <Scroll ref={scrollRef} />
-      <LandingOverlay ref={overlayRef}>
+    <Styledlanding name="home">
+      <Scroll />
+      <LandingOverlay>
         <img
           src={networked}
           alt={"networkED Logo in the center"}
-          ref={logoRef}
+          
         />
       </LandingOverlay>
       <Styledheader>
-        <div ref={headerRef1}>The Language</div>
+        <div>The Language</div>
       </Styledheader>
       <Styledheader>
-        <div ref={headerRef2}>Of Thought</div>
+        <div>Of Thought</div>
       </Styledheader>
       <Particles
+        id="tsparticles"
+        init={particlesInit}
         style={{
           position: "absolute",
           width: "100%",
@@ -110,7 +52,7 @@ const Landing = () => {
               },
             },
             color: {
-              value: "#fff",
+              value: "#ffd54d",
             },
             shape: {
               type: "image",

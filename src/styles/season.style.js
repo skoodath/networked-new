@@ -8,13 +8,11 @@ export const AboutSeasons = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: ${({ hgt }) => (hgt ? hgt : "100vh")};
   width: 80%;
-  max-width: 1200px;
   margin: 2rem auto;
   padding: 0;
   @media ${device.laptop} {
-    height: ${({ hgt }) => (hgt ? hgt : "100vh")};
+    max-width: 968px;
   }
 `;
 
@@ -33,7 +31,7 @@ export const SeasonOneWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   @media ${device.laptop} {
-    max-width: 800px;
+    max-width: 700px;
   }
 `;
 
@@ -52,7 +50,6 @@ export const StyledSluethPara1 = styled.p`
   justify-content: center;
   text-align: center;
   position: relative;
-  visibility: hidden;
   max-width: 400px;
   @media ${device.laptop} {
     font-size: 0.85rem;
@@ -87,7 +84,6 @@ export const StyledSluethPara2 = styled.p`
   justify-content: center;
   text-align: center;
   position: relative;
-  visibility: hidden;
   max-width: 400px;
   @media ${device.laptop} {
     font-size: 0.85rem;
@@ -138,7 +134,7 @@ export const SeasonText = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 0;
 `;
 
@@ -157,25 +153,33 @@ export const UpcomingSeasonWrapper = styled.div`
   align-items: center;
   margin: 5rem 0;
   @media ${device.laptop} {
-    height: 100vh;
     max-height: 750px;
   }
 `;
 
 export const UpcomingSeasonsCard = styled.div`
   display: flex;
-  margin: 0 0 3rem 0;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
   align-items: center;
-  width: 100%;
+  width: 300px;
   position: relative;
+  padding: 1rem 0;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.15), -1px -1px 2px rgba(0,0,0,0.15) ;
+  overflow: hidden;
+  border-radius: 2px;
   &::before {
     position: absolute;
-    content: "";
+    content: "Coming soon";
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
     background: #ffd54e;
-    height: 100%;
-    width: 5px;
-    border-radius: 20px;
-    left: 0;
+    height: 20px;
+    width: 120px;
+    top: 20%;
+    left: -8%;
+    transform: rotate(-45deg);
   }
 `;
 export const UpcomingImageWrapper = styled.div`

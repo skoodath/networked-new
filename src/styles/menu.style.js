@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 import { device } from "./device";
 
 /* Menu Style */
@@ -19,17 +19,24 @@ export const Menu = styled.nav`
 
 /* Menu Item Style */
 
-export const MenuLinks = styled(Link)`
+export const MenuLinks = styled(NavLink)`
   position: relative;
-  margin: 0 1rem 0 0;
+  margin: 0 0 0 1rem;
   cursor: pointer;
-  color: ${({ scroll }) => (scroll ? "#272727" : "#0036E5")};
-  text-transform: uppercase;
+  color: #272727;
+  text-transform: capitalize;
   border: 2px solid transparent;
-  font-weight: bold;
+  letter-spacing: 1px;
   display: block;
-  z-index: 999;
   font-size: 0.9rem;
+  &::first-letter {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #dfaa00;
+  }
+  &:visited{
+    color: #272727;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -47,5 +54,11 @@ export const MenuLinks = styled(Link)`
       transform-origin: bottom center;
       transition: width 0.5s ease-in-out;
     }
+  }
+  @media ${device.laptop} {
+    font-size: 1.2rem;
+    &::first-letter {
+    font-size: 1.5rem;
+  }
   }
 `;

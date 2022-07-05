@@ -6,11 +6,9 @@ import { WrapperContainer } from "../../styles/Reusable/wrapperdiv.style";
 
 const Seasons = () => {
   return (
-    <WrapperContainer>
-      <AboutSeasons hgt="auto">
+    <WrapperContainer name="home">
+      <AboutSeasons>
         <SeasonOne />
-      </AboutSeasons>
-      <AboutSeasons hgt="auto">
         <UpcomingSeasons />
       </AboutSeasons>
     </WrapperContainer>

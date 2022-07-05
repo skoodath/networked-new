@@ -9,24 +9,21 @@ export const InnerWrapper = styled.section`
   padding: 3rem 0;
   justify-content: center;
   width: 80%;
-  max-width: 1200px;
+  max-width: 968px;
   margin: 0 auto;
-  @media ${device.laptop} {
-    height: 100vh;
-  }
 `;
 
 /* Intro Text Style */
 export const IntroParaWrapper = styled.article`
   margin: 0;
-  max-width: 1280px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
 `;
 export const Styledintropara = styled.p`
   line-height: 1.6;
   letter-spacing: 1px;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
   position: relative;
   padding-left: ${({ paddingleft }) => (paddingleft ? "1rem" : "0")};
   text-align: ${({ textalign }) => (textalign ? "right" : "left")};
@@ -39,7 +36,6 @@ export const Styledintropara = styled.p`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   @media ${device.laptop} {
     flex-direction: row;
   }

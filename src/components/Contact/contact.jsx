@@ -1,15 +1,15 @@
 import React from "react";
-import { ContactLinks, MailIcon, MyEmail } from "../../styles/about.style";
+import { ContactLinks, MailIcon, MyEmail } from "../../styles/contact.style";
 
-const ContactUs = React.forwardRef((props, ref) => {
+const ContactUs = (props) => {
   return (
-    <ContactLinks ref={ref}>
+    <ContactLinks>
       <MyEmail>
         <MailIcon />{" "}
         <a href="mailto:archana@networked.in">archana@networked.in</a>
       </MyEmail>
     </ContactLinks>
   );
-});
+};
 
 export default ContactUs;

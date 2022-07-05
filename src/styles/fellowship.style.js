@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import underline from "../assets/images/underline.png";
-import { device } from "./device";
 
 export const StyledFellowship = styled.section`
   display: flex;
@@ -8,18 +7,13 @@ export const StyledFellowship = styled.section`
   padding: 0;
   justify-content: center;
   margin: 5rem auto;
-  height: ${({ hgt }) => (hgt ? hgt : "100vh")};
-  max-width: 1280px;
+  max-width: 968px;
   position: relative;
   width: 80%;
-  @media ${device.laptop} {
-    height: ${({ hgt }) => (hgt ? hgt : "100vh")};
-    max-width: 1200px;
-  }
 `;
 
 export const FellowshipText = styled.p`
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
   padding-left: ${({ paddingleft }) => (paddingleft ? "1rem" : "0")};
   letter-spacing: 1px;
   line-height: 1.6;

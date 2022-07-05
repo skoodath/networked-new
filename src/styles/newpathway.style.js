@@ -39,8 +39,6 @@ export const PathwayImgWrap = styled.div`
   align-items: center;
   padding: 0;
   position: relative;
-  //background-color: #03243C15;
-  border: 1px solid #5e4800;
   @media ${device.laptop} {
     width: 70px;
     height: 70px;
@@ -93,20 +91,18 @@ export const PathwayOverlay = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 95%;
-  height: 90%;
+  height: 95%;
   border-radius: 3px;
   /* clip-path: polygon(0% 100%, 4% 100%, 0% 0%, 0% 0%); */
   /* clip-path: polygon(0% 10%, 1% 20%, 3% 30%, 5% 0%); */
 `;
 
 export const PathwayListItem = styled.li`
-  list-style: none;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 300px;
+  width: 200px;
   margin: 0 auto 1rem;
   padding: 2rem 1rem;
   font-size: 0.8rem;
@@ -187,7 +183,7 @@ export const PathwayListItem = styled.li`
   } */
 
   @media ${device.laptop} {
-    max-width: 300px;
+    max-width: 200px;
     padding: 1.1rem 0.5rem;
     /* &:nth-child(odd) {
       border-top: 3px solid #03243c50;

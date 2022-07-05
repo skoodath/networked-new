@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Logo from "./logo";
-import { HeaderInner, Headeroverlay, Wrapper } from "../../styles/header.style";
+import { HeaderInner, Wrapper } from "../../styles/header.style";
 import MenuPage from "../reusable/menu";
+import { Outlet } from "react-router-dom";
 
 const Header = () => {
   const [headerColor, setHeaderColor] = useState(false);
 
   const setMenu = () => {
-    if (window.scrollY > 150) {
+    if (window.scrollY > 50) {
       setHeaderColor(true);
     } else {
       setHeaderColor(false);
@@ -17,13 +18,13 @@ const Header = () => {
   window.addEventListener("scroll", setMenu);
 
   return (
-    <Wrapper scroll={headerColor}>
-      <HeaderInner>
-        <Headeroverlay scroll={headerColor}>
-          <Logo />
-        </Headeroverlay>
+    <Wrapper name="home">
+      <HeaderInner scroll={headerColor}>
+        <Logo />
         <MenuPage scroll={headerColor} />
+        
       </HeaderInner>
+      <Outlet />
     </Wrapper>
   );
 };

@@ -3,7 +3,7 @@ import { Title } from "../../styles/header.style";
 import networkedtype from "../../assets/images/netedtype.svg";
 
 const Logo = () => (
-  <Title to="landing" smooth={true} offset={-100} duration={500}>
+  <Title to="home" smooth={true} offset={-100} duration={500}>
     <img src={networkedtype} alt="networkED logo" />
   </Title>
 );

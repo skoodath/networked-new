@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import scrollTrigger from "gsap/ScrollTrigger";
+import React from "react";
 import {
   CardHeader,
   CardHeaderWrapper,
@@ -9,41 +7,14 @@ import {
   Overlay,
 } from "../../styles/about.style";
 
-gsap.registerPlugin(scrollTrigger);
 
-const Benefitcards = React.forwardRef(({ benefitinfo }, ref) => {
+const Benefitcards = ({ benefitinfo }) => {
   const { src, alt, title, para, colstart, colend, rowstart, rowend } =
     benefitinfo;
-
-  const itemRef = useRef(null);
-  const animateCard = () => {
-    gsap.from(
-      itemRef.current,
-      {
-        scrollTrigger: {
-          trigger: itemRef.current,
-          start: "top 80%",
-          end: "top 50%",
-          toggleActions: "play none none none",
-          scrub: 3,
-        },
-        autoAlpha: 0,
-        duration: 1,
-        y: 100,
-        ease: "Expo.easeOut",
-      },
-      "+=1"
-    );
-  };
-
-  useEffect(() => {
-    animateCard();
-  });
 
   return (
     <>
       <CardItem
-        ref={itemRef}
         colstart={colstart}
         colend={colend}
         rowstart={rowstart}
@@ -51,13 +22,13 @@ const Benefitcards = React.forwardRef(({ benefitinfo }, ref) => {
       >
         <CardHeaderWrapper>
           <CardImage src={src} alt={alt} />
-          <CardHeader>{title}</CardHeader>
         </CardHeaderWrapper>
         <Overlay>
+        <CardHeader>{title}</CardHeader>
           <p>{para}</p>
         </Overlay>
       </CardItem>
     </>
   );
-});
+};
 export default Benefitcards;

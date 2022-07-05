@@ -1,87 +1,27 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
   StyledGetInvolved,
   StyledGetInvolvedWrapper,
   StyledInnerWrapper,
-} from "../../styles/about.style";
-import Contact from "./joinform";
-import gsap from "gsap";
-import scrollTrigger from "gsap/ScrollTrigger";
+} from "../../styles/contact.style";
+import Contact from "./contactform";
 import ContactUs from "./contact";
 import { SectionHeader } from "../reusable";
 
-gsap.registerPlugin(scrollTrigger);
-
 const WhoCan = () => {
-  const getinvolvedRef = useRef(null);
-  const whocanRef = useRef(null);
-  const formRef = useRef(null);
-  const contactmeRef = useRef(null);
-
-  const animateSections = (el) => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 80%",
-        end: "top 40%",
-        toggleActions: "play none none none",
-        scrub: 3,
-      },
-      autoAlpha: 0,
-      duration: 0.5,
-      y: 50,
-    });
-  };
-
-  const animatePara = (el) => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 80%",
-        end: "top 40%",
-        toggleActions: "play none none none",
-        scrub: 3,
-      },
-      autoAlpha: 0,
-      duration: 0.5,
-      y: 50,
-    });
-  };
-
-  useEffect(() => {
-    animateSections(getinvolvedRef.current);
-    animatePara(whocanRef.current);
-    animatePara(formRef.current);
-  });
-  useEffect(() => {
-    gsap.from(contactmeRef.current, {
-      scrollTrigger: {
-        trigger: formRef.current,
-        start: "top 80%",
-        end: "top 60%",
-        toggleActions: "play none none none",
-        scrub: 5,
-      },
-      opacity: 0,
-      duration: 0.5,
-      y: 50,
-    });
-  });
 
   return (
     <>
-      <StyledGetInvolvedWrapper>
-        <SectionHeader text={`Get Involved`} ref={getinvolvedRef} />
+      <StyledGetInvolvedWrapper name="contact">
+        <SectionHeader text={`Get Involved`} />
         <StyledInnerWrapper>
-          <StyledGetInvolved ref={whocanRef}>
+          <StyledGetInvolved>
             Connect with us if interested in knowing how to enhance cognitive
             functions of children using network representations from real world
             experiences.
           </StyledGetInvolved>
-        </StyledInnerWrapper>
-        <StyledInnerWrapper>
-          <Contact ref={formRef} />
-          <ContactUs ref={contactmeRef} />
+          <Contact />
+          <ContactUs />
         </StyledInnerWrapper>
       </StyledGetInvolvedWrapper>
     </>
