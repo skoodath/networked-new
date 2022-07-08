@@ -1,19 +1,32 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { device } from "./device";
+import { MdMenu } from "react-icons/md";
 
 /* Menu Style */
 
 export const Menu = styled.nav`
-  color: #272727;
-  align-items: center;
   margin: 0 0 0 auto;
   z-index: 999;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  width: 90%;
+  height: 100vh;
+  background-color: #242424;
+  position: fixed;
+  top: 0;
+  right: 0;
+  visibility: ${({show}) => show ? "visible" : "hidden"};
   @media ${device.laptop} {
-    margin: 0 0 0 auto;
+    flex-direction: row;
+    position: relative;
+    visibility: visible;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: auto;
+    background-color: #fff;
   }
 `;
 
@@ -21,21 +34,21 @@ export const Menu = styled.nav`
 
 export const MenuLinks = styled(NavLink)`
   position: relative;
-  margin: 0 0 0 1rem;
   cursor: pointer;
-  color: #272727;
+  color: #fff;
   text-transform: capitalize;
   border: 2px solid transparent;
   letter-spacing: 1px;
   display: block;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
+  margin: 0 0 2rem 0;
   &::first-letter {
-    font-size: 1.2rem;
-    font-weight: 900;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #dfaa00;
   }
   &:visited{
-    color: #272727;
+    color: #fff;
   }
   &::after {
     content: "";
@@ -56,9 +69,41 @@ export const MenuLinks = styled(NavLink)`
     }
   }
   @media ${device.laptop} {
+    color: #272727;
+    margin: 0 0 0 1rem;
+    &:visited{
+      color: #272727;
+    }
     font-size: 1.2rem;
     &::first-letter {
     font-size: 1.5rem;
   }
   }
 `;
+
+export const MenuWrapper = styled.span`
+  margin: 0 0 0 auto;
+`
+
+export const Hamburger = styled(MdMenu)`
+  
+  font-size: 2.5rem;
+  @media ${device.laptop} {
+    display: none;
+  }
+`;
+
+export const CloseButton = styled.span`
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  svg{
+    fill: #fff;
+    font-size: 1.5rem;
+  }
+  @media ${device.laptop}{
+    display: none;
+  }
+`

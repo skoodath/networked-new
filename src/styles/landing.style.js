@@ -12,7 +12,8 @@ export const Styledlanding = styled.section`
   position: relative;
   overflow: hidden;
   @media ${device.laptop}{
-    height: 60vh;
+    height: 75vh;
+
   }
 `;
 

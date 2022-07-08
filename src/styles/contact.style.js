@@ -100,8 +100,8 @@ export const ContactWrapper = styled.div`
 export const InputFields = styled.input`
   padding: 0.2rem;
   width: 100%;
-  border-radius: 5px;
-  border: 5px solid transparent;
+  border-radius: 3px;
+  border: none;
   background-color: #fff7df;
   font-size: 1rem;
   display: block;
@@ -110,6 +110,7 @@ export const InputFields = styled.input`
   transition-property: border-left;
   transition-duration: 0.5s;
   transform-origin: left center;
+  border-left: 5px solid transparent;
   resize: none;
   &:focus {
     outline: none;
@@ -128,8 +129,6 @@ export const InputLabels = styled.label`
   transition-timing-function: ease-in-out;
   color: #272727;
 `;
-
-export const MessageBox = InputFields.withComponent("textarea");
 
 export const SendButton = styled.button`
   border: none;

@@ -3,7 +3,6 @@ import {
   ContactForm,
   InputFields,
   InputLabels,
-  MessageBox,
   ContactWrapper,
   SendButton,
 } from "../../styles/contact.style";
@@ -29,7 +28,8 @@ const Contact = (props) => {
         </ContactWrapper>
         <ContactWrapper>
           <InputLabels htmlFor="message">Send a note</InputLabels>
-          <MessageBox
+          <InputFields
+            as="textarea"
             type="text"
             name="message"
             id="message"
